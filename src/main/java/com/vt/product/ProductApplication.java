@@ -22,8 +22,20 @@ public class ProductApplication {
     @Bean
     public CommandLineRunner tx(ProductService productService){
         return args -> {
-     productService.save3();
+     //productService.save3();
 
+        };
+    }
+    @Bean
+    public CommandLineRunner tx1(ProductRepository productRepository,TransactionTemplate transactionTemplate){
+        return args -> {
+            transactionTemplate.executeWithoutResult(transactionStatus -> {
+                Product product = productRepository.findById(1l).get();
+                product.setDescription("tytyrytryrdbf");
+            });
+//            Product product = productRepository.findById(1l).get();
+//            product.setDescription("ssss");
+//            productRepository.save(product);
         };
     }
 }

@@ -12,4 +12,7 @@ public interface ProductService {
     List<Product> findAll();
     Optional<Product> findById(long id);
     List<Product> findByCategory(ProductCategory category);
+    void save1();
+    void save2();
+    void save3();
 }
